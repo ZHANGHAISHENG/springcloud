@@ -1,0 +1,19 @@
+server:
+ port: 8763 #8764
+
+spring:
+  application:
+    name: service-hi
+  cloud:
+    #控制台运行命令： consul agent -dev
+    #访问控制台查看： http://localhost:8500
+    consul:
+      host: 127.0.0.1
+      port: 8500
+      discovery:
+        healthCheckPath: /actuator/health
+        healthCheckInterval: 15s
+        #配置 Consul 注册服务 ID,baozheng保證唯一
+        instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+
+

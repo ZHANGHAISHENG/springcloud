@@ -1,0 +1,23 @@
+server:
+  port: 8888
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+spring:
+  application:
+    name: config-server
+  cloud:
+     config:
+       label: master
+       server:
+         git:
+           uri: https://github.com/ZHANGHAISHENG/springcloud-config # 如果使用自己搭建的gitlab的话，git.uri必须是以.git结尾的完整地址
+           searchPaths: respo
+           username:
+           password:
+
+
+

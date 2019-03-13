@@ -1,0 +1,27 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+server:
+  port: 8764
+spring:
+  application:
+    name: service-ribbon
+  # 需要先运行 java -jar zipkin-server-2.10.1-exec.jar
+  # 执行hi api 调用后访问http://localhost:9411查看效果
+  zipkin:
+      enabled: true
+      base-url: http://localhost:9411
+
+# HystrixDashboard 需要添加
+# 执行 http://localhost:8764/hystrix
+# 输入： http://localhost:8764/actuator/hystrix.stream
+# 在请求http://localhost:8762/actuator/hystrix.stream之前，需要随便请求一个接口，例如：http://localhost:8762/hi，否则会一直ping ping ping
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      cors:
+        allowed-origins: "*"
+        allowed-methods: "*"
