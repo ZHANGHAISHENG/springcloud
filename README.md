@@ -81,7 +81,7 @@ https://www.cnblogs.com/scode2/p/8671223.html（consul 客户端）
 ## zuul网关：
   运行：eurekaserver、eurekaclient（可选）、service-zuul、service-ribbon、service-feign <br>
   访问： http://localhost:8769/api-a/hi (映射到service-ribbon) <br>
-         http://localhost:8769/api-b/hi (映射到service-feign)
+        http://localhost:8769/api-b/hi (映射到service-feign)
 
  
  
